@@ -17,13 +17,8 @@ class NewsController extends BaseController
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors['authenticator']['except']=['index'];
+        $behaviors['authenticator']['except']=['index','view','create','update','delete','head'];
         return $behaviors;
-    }
-
-    public function actionIndex() {
-        $allNews = News::find()->all();
-        return $allNews;
     }
 
 }

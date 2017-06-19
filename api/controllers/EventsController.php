@@ -8,16 +8,16 @@ use yii\data\ActiveDataProvider;
 
 class EventsController extends BaseController
 {
-    public $modelClass = 'common\models\Events';
+    public $modelClass = 'common\models\events';
     public function actions() {
         $act = parent::actions();
-        unset($act['delete']);
         return $act;
     }
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors['authenticator']['except']=['index'];
+
+        $behaviors['authenticator']['except']=['index','view','create','update','delete','head'];
         return $behaviors;
     }
 }
